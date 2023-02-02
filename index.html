@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .active {
+    background-color: red;
+  }
+</style>
+
+<body>
+  <a class="btn" href="#">Click</a>
+  <div class="wrap">
+    <div class="inner first">1</div>
+    <div class="inner">2</div>
+    <div class="inner active">3</div>
+    <div class="inner">4</div>
+    <div class="inner">5</div>
+    <div class="inner">6</div>
+    <div class="inner">7</div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+<script>
+
+  $('.btn').click(function (event) {
+    event.preventDefault();
+    if ($('.active').index() === ($('.inner').length - 1)) {
+      $('.active').removeClass('active');
+      $('.inner').eq(0).addClass('active');
+    } else {
+      $('.active').removeClass('active').next('.inner').addClass('active');
+    }
+  });
+
+</script>
+
+</html>
